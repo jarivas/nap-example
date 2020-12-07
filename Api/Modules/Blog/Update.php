@@ -1,10 +1,10 @@
 <?php
 
-namespace Api\Modules\Certification;
+namespace Api\Modules\Blog;
 
 use Core\Db\Persistence as DB;
 use Core\Action;
-use Api\Modules\Certification\Read as ReadAction;
+use Api\Modules\Blog\Read as ReadAction;
 
 class Update extends Action {
 

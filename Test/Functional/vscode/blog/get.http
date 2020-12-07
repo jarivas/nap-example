@@ -4,7 +4,10 @@ POST {{url}} HTTP/1.1
 
 {
     "module": "blog",
-    "action": "read"
+    "action": "read",
+    "parameters": {
+        "user": 1
+    }
 }
 
 ###
@@ -14,8 +17,9 @@ POST {{url}} HTTP/1.1
 {
     "module": "blog",
     "action": "read",
-    "params": {
-        "page": 1,
-        "max": 10
+    "parameters": {
+        "page": 0,
+        "max": 1,
+        "user": 1
     }
 }

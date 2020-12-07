@@ -1,4 +1,20 @@
 ###
+# @name login
+POST {{url}} HTTP/1.1
+
+{
+    "module": "user",
+    "action": "login",
+    "parameters": {
+        "username": "{{username}}",
+        "password": "{{password}}"
+    }
+}
+
+###
+@token = {{login.response.body.token}}
+
+###
 # @name create
 POST {{url}} HTTP/1.1
 
@@ -11,7 +27,7 @@ POST {{url}} HTTP/1.1
     "parameters": {
         "title": "Post title",
         "summary": "Supreme Space Commander News",
-        "body": "Full text of the news",
+        "body": "{\"array\":[1,2,3],\"boolean\":true,\"null\":null,\"number\":123,\"object\":{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"},\"string\":\"Hello World\"}",
         "tags": "tag1,tag2,tag3"
     }
 }
@@ -20,7 +36,7 @@ POST {{url}} HTTP/1.1
 POST {{url}} HTTP/1.1
 
 {
-    "module": "certification",
+    "module": "blog",
     "action": "update",
     "auth": {
         "token": "{{token}}"
@@ -28,7 +44,7 @@ POST {{url}} HTTP/1.1
     "parameters": {
         "title": "Post title EDITED",
         "summary": "Supreme Space Commander News",
-        "body": "Full text of the news",
+        "body": "{\"array\":[1,2,3],\"boolean\":true,\"null\":null,\"number\":123,\"object\":{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"},\"string\":\"Hello World\"}",
         "tags": "tag1,tag2,tag3",
         "_id": 1
     }
@@ -39,9 +55,12 @@ POST {{url}} HTTP/1.1
 POST {{url}} HTTP/1.1
 
 {
-    "module": "certification",
+    "module": "blog",
     "action": "read",
     "auth": {
         "token": "{{token}}"
+    },
+    "parameters": {
+        "user": 1
     }
 }

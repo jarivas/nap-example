@@ -18,7 +18,7 @@ class Read extends Action
     
     public static function process(array $params, DB $persistence): array
     {
-        $criteria = self::getUserCriteria();
+        $criteria = ['user_id' => [DB::CRITERIA_AND, DB::CRITERIA_EQUAL, $params['user']]];
         
         $options = [
             'limit' => self::getLimit($params),
