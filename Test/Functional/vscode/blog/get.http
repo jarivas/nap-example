@@ -1,0 +1,21 @@
+###
+# @name get
+POST {{url}} HTTP/1.1
+
+{
+    "module": "blog",
+    "action": "read"
+}
+
+###
+# @name get
+POST {{url}} HTTP/1.1
+
+{
+    "module": "blog",
+    "action": "read",
+    "params": {
+        "page": 1,
+        "max": 10
+    }
+}

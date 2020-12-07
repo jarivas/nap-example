@@ -7,6 +7,7 @@ use \Core\Db\Persistence as DB;
 abstract class Action {
 
     const USER_STORE = 'user';
+    const MAX_ROWS = 50;
 
     abstract public static function process(array $params, DB $persistence): array;
 
@@ -29,6 +30,30 @@ abstract class Action {
         }
 
         return $result;
+    }
+    
+    protected static function getLimit(array &$params): int {
+        if (empty($params['max'])) {
+            return self::MAX_ROWS;
+        }
+        
+        $max = intval($params['max']);
+        
+        if ($max < 1 || $max > 50) {
+            return self::MAX_ROWS;
+        }
+        
+        return $max;
+    }
+    
+    protected static function getSkip(array &$params):int {
+        $page = 1;
+        
+        if (intval($params['page']) > $page) {
+            $page = intval($params['page']);
+        }
+        
+        return $page * self::getLimit($params);
     }
 
 }

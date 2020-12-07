@@ -15,7 +15,7 @@ class Update extends Action {
 
         $criteria = self::getUserCriteria();
 
-        $item = $persistence->readOne($criteria, ReadAction::PERSONAL_DATA_STORE);
+        $item = $persistence->readOne($criteria, ReadAction::STORE);
         
         $params['user_id'] = $user['_id'];
 
@@ -23,10 +23,10 @@ class Update extends Action {
 
             $params['_id'] = $item['_id'];
             
-            return ['success' => $persistence->update($criteria, $params, ReadAction::PERSONAL_DATA_STORE)];
+            return ['success' => $persistence->update($criteria, $params, ReadAction::STORE)];
         }
 
-        return ['success' => $persistence->create($params, self::PERSONAL_DATA_STORE)];
+        return ['success' => $persistence->create($params, ReadAction::STORE)];
     }
 
 }

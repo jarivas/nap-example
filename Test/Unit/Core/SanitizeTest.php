@@ -102,6 +102,33 @@ class SanitizeTest extends TestCase {
         $this->assertCount(1, $filtersError);
     }
 
+    private function ApplyFilterJSON(): void {
+        $filter = 'JSON';
+        $filtersError = [];
+        $value = <<<JSON
+{
+  "array": [
+    1,
+    2,
+    3
+  ],
+  "boolean": true,
+  "null": null,
+  "number": 123,
+  "object": {
+    "a": "b",
+    "c": "d",
+    "e": "f"
+  },
+  "string": "Hello World"
+}
+JSON;
+
+        Sanitize::applyFilter($filter, $filtersError, $value);
+
+        $this->assertCount(0, $filtersError);
+    }
+
     private function ApplyFilterFilter(): void {
         $filter = 'FILTER_SANITIZE_STRING-FILTER_FLAG_STRIP_HIGH';
         $filtersError = [];
@@ -125,6 +152,7 @@ class SanitizeTest extends TestCase {
         $this->ApplyFilterDefault();
         $this->ApplyFilterRequired();
         $this->ApplyFilterDateTime();
+        $this->ApplyFilterJSON();
         $this->GetFilterFlag();
         $this->ApplyFilterFilter();
     }

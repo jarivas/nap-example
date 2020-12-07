@@ -7,7 +7,7 @@ use Core\Action;
 
 class Read extends Action
 {
-    const PERSONAL_DATA_STORE = 'personalData';
+    const STORE = 'personalData';
     
     const DEFAULT_FIELDS =  [
         'firstName',
@@ -24,7 +24,7 @@ class Read extends Action
     {
         $criteria = self::getUserCriteria();
         
-        $item = $persistence->readOne($criteria, self::PERSONAL_DATA_STORE);
+        $item = $persistence->readOne($criteria, self::STORE);
         
         return ['success' => true, 'data' => $item ? $item : self::getDefaultResult(self::DEFAULT_FIELDS)];
     }

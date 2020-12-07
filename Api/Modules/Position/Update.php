@@ -29,7 +29,7 @@ class Update extends Action {
         
         $params['user_id'] = $user['_id'];
         
-        return $persistence->create($params, ReadAction::POSITION_STORE);
+        return $persistence->create($params, ReadAction::STORE);
         
     }
 
@@ -44,7 +44,7 @@ class Update extends Action {
         
         $item['user_id'] = $user['_id'];
         
-        return $persistence->update($criteria, $item, ReadAction::POSITION_STORE);
+        return $persistence->update($criteria, $item, ReadAction::STORE);
     }
 
 }

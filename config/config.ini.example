@@ -46,10 +46,15 @@ auth = read,update
 actions = read,update
 auth = read,update
 
+[blog]
+actions = read,update
+auth = update
+
 
 ;module_action_parameter = REQUIRED
 ;module_action_parameter = DEFAULT_10
 ;module_action_parameter = DATETIME (format Y-m-d H:i:s)
+;module_action_parameter = JSON
 ;Sanitize filters : https://www.php.net/manual/en/filter.filters.sanitize.php
 ;Validate Filters : https://www.php.net/manual/en/filter.filters.validate.php
 ;Sanitize before Validate: REQUIRED|FILTER_SANITIZE_NUMBER_INT|FILTER_VALIDATE_INT
@@ -86,3 +91,7 @@ skill_update_name = REQUIRED+FILTER_SANITIZE_STRING-FILTER_FLAG_STRIP_HIGH
 social_update_name = REQUIRED+FILTER_SANITIZE_STRING-FILTER_FLAG_STRIP_HIGH
 social_update_url = REQUIRED+FILTER_SANITIZE_URL
 social_update_icon = REQUIRED+FILTER_SANITIZE_URL
+blog_update_title = REQUIRED+FILTER_SANITIZE_STRING-FILTER_FLAG_STRIP_HIGH
+blog_update_summary = REQUIRED+FILTER_SANITIZE_STRING
+blog_update_body = REQUIRED+JSON
+blog_update_tags = REQUIRED+FILTER_SANITIZE_STRING

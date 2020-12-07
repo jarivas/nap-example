@@ -17,7 +17,7 @@ class Read extends Action
     {
         $criteria = self::getUserCriteria();
         
-        $items = $persistence->read($criteria, self::EDUCATION_STORE);
+        $items = $persistence->read($criteria, self::STORE);
         
         return ['success' => true, 'data' => $items ? $items : self::getDefaultResult(self::DEFAULT_FIELDS)];
     }

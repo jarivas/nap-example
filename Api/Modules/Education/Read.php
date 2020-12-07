@@ -7,7 +7,7 @@ use Core\Action;
 
 class Read extends Action
 {
-    const EDUCATION_STORE = 'education';
+    const STORE = 'education';
     
     const DEFAULT_FIELDS =  [
         'degree',

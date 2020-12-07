@@ -7,7 +7,7 @@ use Core\Action;
 
 class Read extends Action
 {
-    const EDUCATION_STORE = 'certification';
+    const STORE = 'certification';
     
     const DEFAULT_FIELDS =  [
         'name',
@@ -18,7 +18,7 @@ class Read extends Action
     {
         $criteria = self::getUserCriteria();
         
-        $items = $persistence->read($criteria, self::EDUCATION_STORE);
+        $items = $persistence->read($criteria, self::STORE);
         
         return ['success' => true, 'data' => $items ? $items : self::getDefaultResult(self::DEFAULT_FIELDS)];
     }

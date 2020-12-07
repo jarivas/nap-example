@@ -92,6 +92,17 @@ class Sanitize {
                     $filtersError[] = 'Wrong format, the right one is: ' . self::DATETIME_FORMAT;
                 }
                 break;
+            case 'JSON':
+                if (!$value || !strlen($value)) {
+                    return;
+                }
+                
+                $value = json_decode($value, true);
+                
+                if (!$value) {
+                    $filtersError[] = 'Invalid JSON';
+                }
+                break;
             case 'FILTER':
                 if (!$value || !strlen($value)) {
                     return;

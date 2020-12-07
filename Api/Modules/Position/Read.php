@@ -7,7 +7,7 @@ use Core\Action;
 
 class Read extends Action
 {
-    const POSITION_STORE = 'position';
+    const STORE = 'position';
     
     const DEFAULT_FIELDS =  [
         'company',
@@ -22,7 +22,7 @@ class Read extends Action
     {
         $criteria = self::getUserCriteria();
         
-        $items = $persistence->read($criteria, self::POSITION_STORE);
+        $items = $persistence->read($criteria, self::STORE);
         
         return ['success' => true, 'data' => $items ? $items : self::getDefaultResult(self::DEFAULT_FIELDS)];
     }
