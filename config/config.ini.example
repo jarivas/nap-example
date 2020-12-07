@@ -54,9 +54,10 @@ auth = update
 ;module_action_parameter = REQUIRED
 ;module_action_parameter = DEFAULT_10
 ;module_action_parameter = DATETIME (format Y-m-d H:i:s)
-;module_action_parameter = JSON
+;module_action_parameter = JSON as escaped string
 ;Sanitize filters : https://www.php.net/manual/en/filter.filters.sanitize.php
 ;Validate Filters : https://www.php.net/manual/en/filter.filters.validate.php
+;If you want to use DEFAULT do not use REQUIRED or will create an error in case no value comes for that parameter
 ;Sanitize before Validate: REQUIRED|FILTER_SANITIZE_NUMBER_INT|FILTER_VALIDATE_INT
 
 [sanitize]
