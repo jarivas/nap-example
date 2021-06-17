@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Action\\": "src/Action",
+      "Helpers\\": "src/Helpers"
+    }
+  },
+  "require": {
+    "jarivas/nap": "^3.0"
+  }
+}
