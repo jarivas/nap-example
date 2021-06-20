@@ -5,8 +5,10 @@
 ._*
 *.phprj
 *.workspace
-config/config.php
-config/config.json
+app/config/config.json
+app/vendor
+app/log
+docker/data
 composer.lock
 /nbproject/*
 nbproject/*

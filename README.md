@@ -4,12 +4,21 @@ I have created this example to help in getting started with this really easy fra
 
 ### Getting started
 
+#### Docker
+* `docker-compose up -d`
+* `docker exec -it idealista-server php ./commands/createDbClasses.php`
+* `docker exec -it idealista-server chmod -R 777 /var/www`
+
+#### Composer
+* `cd app`
+* `composer install`
+
 #### Folders structure
-* **src** is where your code is going to be.
-* **config** is where the config.ini file should be, later on explained.
-* **log** Where all the files log are going to be stored if you use FileLogger
-* **public**  is the entry point of the application, the real request will go throught *index.php*
-* **tests** The unit test will be here
+* **app/src** is where your code is going to be.
+* **app/config** is where the config.ini file should be, later on explained.
+* **app/log** Where all the files log are going to be stored if you use FileLogger
+* **app/public**  is the entry point of the application, the real request will go throught *index.php*
+* **app/commands** php commands to help install and set up environment
 
 #### Config
 * In order the application to work config/config.ini should exists

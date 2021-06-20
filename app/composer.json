@@ -2,10 +2,12 @@
   "autoload": {
     "psr-4": {
       "Action\\": "src/Action",
+      "Db\\": "src/Db",
       "Helpers\\": "src/Helpers"
     }
   },
   "require": {
-    "jarivas/nap": "^3.0"
+    "jarivas/nap": "^3.0",
+    "jarivas/no-orm": "^2.0"
   }
 }
