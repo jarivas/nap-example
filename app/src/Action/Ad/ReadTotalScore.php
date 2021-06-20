@@ -4,8 +4,9 @@
 namespace Action\Ad;
 
 use Nap\Action;
+use Db\Ad as DbAd;
 
-class Read extends Action
+class ReadTotalScore extends Action
 {
 
     /**
@@ -14,6 +15,6 @@ class Read extends Action
      */
     public static function process(array $params): array
     {
-        return parent::responseOk(['$params' => $params]);
+       return parent::responseOk(DbAd::get(['sum(' . DbAd::COL_SCORE . ') as TotalScore']));
     }
 }
